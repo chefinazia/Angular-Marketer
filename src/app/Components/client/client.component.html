@@ -1,0 +1,25 @@
+<div class="client">
+    <span>All Clients</span>
+    <div class='right'>
+
+
+        <div>
+            <button mat-raised-button color="primary">Upload Clients</button>
+        </div>
+
+    </div>
+</div>
+<div class="table">
+    <table>
+        <tr>
+            <th *ngFor="let column of headers">
+                {{ column}}
+            </th>
+        </tr>
+        <tr *ngFor="let row of rows">
+            <td *ngFor="let column of headers">
+                {{ row[column] }}
+            </td>
+        </tr>
+    </table>
+</div>

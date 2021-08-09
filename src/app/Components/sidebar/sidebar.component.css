@@ -1,0 +1,30 @@
+div {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  width: 250px;
+  top: 0px;
+  left: 0px;
+}
+
+h3 {
+  top: 48px;
+  left: 20px;
+}
+
+span {
+  margin: 3px;
+  padding: 10px;
+  font-size: 16px;
+  font-family: karla;
+}
+
+button {
+  margin-top: 200px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  padding: 15px;
+}

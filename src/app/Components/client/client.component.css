@@ -1,0 +1,39 @@
+.client {
+    display: flex;
+    margin-top: 90px;
+    margin-left: 15px;
+    font-family: Karla;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 36px;
+    color: #333;
+  }
+  
+  /* .example-button-row {
+    display: table-cell;
+    width: 490px;
+  } */
+  
+  button {
+    position: absolute;
+    width: 150px;
+    height: 40px;
+    margin-left: 800px;
+    margin-top: -6px;
+  }
+  
+  table {
+    position: absolute;
+    width: 1020px;
+    height: 482px;
+    /* left: 300px; */
+    /* top: 150px; */
+    background: #ffffff;
+    /* Border stroke */
+  
+    border: 1px solid #dadada;
+    box-sizing: border-box;
+    border-radius: 10px;
+  }
+  

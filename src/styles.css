@@ -1,1 +1,41 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: hsl(143, 100%, 93%);
+}
+
+body,
+html {
+  height: 100%;
+  background-color: #e5e5e5 !important;
+  font-family: "Karla", sans- serif;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+input:active,
+input:focus {
+  outline-width: 0;
+}
+
+textarea:active,
+textarea:focus {
+  outline-width: 0;
+}
+
+/* .tab{
+    max-height: 500px !important;
+  } */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
