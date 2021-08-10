@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "angular-marketer": {
+      "hosting": {
+        "Angular-Marketer": [
+          "angular-marketer"
+        ]
+      }
+    }
+  }
+}
