@@ -6,13 +6,21 @@ import { AppComponent } from './app.component';
 import { SidebarComponent } from './Components/sidebar/sidebar.component';
 import { NavbarComponent } from './Components/navbar/navbar.component';
 import { ClientComponent } from './Components/client/client.component';
+import { DashboardComponent } from './Components/dashboard/dashboard.component';
+import { CampaignsComponent } from './Components/campaigns/campaigns.component';
+import { MailersComponent } from './Components/mailers/mailers.component';
+import { HistoryComponent } from './Components/history/history.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SidebarComponent,
     NavbarComponent,
-    ClientComponent
+    ClientComponent,
+    DashboardComponent,
+    CampaignsComponent,
+    MailersComponent,
+    HistoryComponent
   ],
   imports: [
     BrowserModule,
