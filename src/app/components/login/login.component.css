@@ -8,3 +8,22 @@
   top: 0 !important;
   left: 0 !important;
 }
+.loginButton{
+  /* position: absolute; */
+  /* width: 287px;
+  height: 48px; */
+  /* left: 998px;
+  top: 437px; */
+
+  /* background: #4285F4; */
+
+}
+
+.img{
+  position: absolute;
+  width: 287px;
+  height: 48px;
+  left: 946px;
+  top: 360px;
+  border-radius: 10px;
+}
