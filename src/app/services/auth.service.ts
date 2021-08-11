@@ -67,7 +67,7 @@ export class AuthService {
   isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user'));
     if(!user){
-      this.router.navigate(['login']);
+      // this.router.navigate(['login']);
       return false
     }else{
       return true

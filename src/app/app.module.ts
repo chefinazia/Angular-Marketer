@@ -12,11 +12,26 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 import { AngularFireAuthModule } from "@angular/fire/auth";
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { ClientComponent } from './components/client/client.component';
+import { CreateClientComponent } from './components/create-client/create-client.component';
+import { MailerComponent } from './components/mailer/mailer.component';
+import { HistoryComponent } from './components/history/history.component';
+import { CampaignComponent } from './components/campaign/campaign.component';
+import { CreateCampaignComponent } from './components/create-campaign/create-campaign.component';
+// import { SideRoutingModule } from './components/sidebar/side-routing/side-routing.module';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    SidebarComponent,
+    ClientComponent,
+    CreateClientComponent,
+    MailerComponent,
+    HistoryComponent,
+    CampaignComponent,
+    CreateCampaignComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +39,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAnalyticsModule,
     AngularFirestoreModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    // SideRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
