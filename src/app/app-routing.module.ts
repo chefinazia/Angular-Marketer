@@ -15,6 +15,7 @@ const routes: Routes = [
   {path:"campaign" ,component:CampaignComponent},
   {path:"mailer" ,component:MailerComponent},
   {path:"history" ,component:HistoryComponent},
+  {path: '**', redirectTo: '/'} //always keep this route at the end
 
 ];
 
