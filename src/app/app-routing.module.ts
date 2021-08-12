@@ -7,6 +7,7 @@ import {MailerComponent} from './components/mailer/mailer.component'
 import {ClientComponent} from './components/client/client.component'
 import {CampaignComponent} from './components/campaign/campaign.component'
 import {HistoryComponent} from './components/history/history.component'
+import { CreateCampaignComponent } from './components/create-campaign/create-campaign.component';
 const routes: Routes = [
   {path:'', pathMatch: 'full', redirectTo: '/login' },
   {path:"login",component:LoginComponent},
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path:"campaign" ,component:CampaignComponent},
   {path:"mailer" ,component:MailerComponent},
   {path:"history" ,component:HistoryComponent},
+  {path:"create-campaign",component:CreateCampaignComponent}
 
 ];
 

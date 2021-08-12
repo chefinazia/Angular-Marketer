@@ -4,11 +4,74 @@
 <div style="margin-left:20%">
 
   <div class="w3-container w3-teal">
-    <h1>NavBar</h1>
+    <h1>NavBa</h1>
   </div>
 
   <div class="w3-container">
 
-  </div>
+    <!-- <p>campaigns</p> -->
+
+    <p [ngStyle]="{fontSize:'28px',marginLeft:'52px',fontFamily:'Karla'}">Campaigns</p>
+<a  [ngStyle]="{fontSize:'18px',marginLeft:'52px',fontFamily:'Karla'}">All Campaigns <span [ngStyle]="{fontSize:'22px',fontFamily:'Karla'}"> > Create Campaigns</span></a>
+<div class="table">
+<form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)" [ngStyle]="{marginTop:'50px'}">
+    <div class="form-row">
+    <div class="form-group col-md-6">
+        <label [ngStyle]="{fontFamily:'Karla'}">Campaign name</label>
+        <input name="name" #fullName="ngModel" [(ngModel)]="service.formData.name" class="form-control" [ngStyle]="{borderRadius:'10px'}" placeholder="Campaign name">
+        <!-- <div *ngIf="fullName.invalid && fullName.touched" class="validation-error">This field is required</div> -->
+
+        
+
+    </div>
+
+    <div class="form-group col-md-6">
+        <label [ngStyle]="{fontFamily:'Karla'}">Subject</label>
+        <input name="subject" #fullName="ngModel" [(ngModel)]="service.formData.subject" class="form-control" [ngStyle]="{borderRadius:'10px'}" placeholder="Subject">
+        <input name="createdAt" #fullName="ngModel" [(ngModel)]="service.formData.createdAt" [ngStyle]="{display:'none'}"class="form-control"  placeholder="Subject">
+
+
+        
+
+    </div>
+</div>
+<div class="form-row">
+
+    <div class="form-group col-md-4" >
+        <label [ngStyle]="{fontFamily:'Karla'}">Image upload</label>
+        <input type="file" name="path" (change)="onFileSelected($event)"  [(ngModel)]="service.formData.path" class="form-control" [ngStyle]="{borderRadius:'10px'}" accept="*.png.jpg" id="">
+    
+    </div>
+
+</div>
+
+
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label [ngStyle]="{fontFamily:'Karla'}">Content</label>
+            <textarea type="text" name="content"  [ngStyle]="{height:'140px',width:'975px',borderRadius:'10px'}" #fullName="ngModel" [(ngModel)]="service.formData.content" class="form-control"  placeholder="Content"></textarea>
+    
+            
+    
+        </div>
+     
+
+    </div>
+   
+    <div class="btn" >
+        <button (click)="onUpload()" class="btn1" [ngStyle]="{'border':'none',fontFamily:'Karla'}">SUBMIT</button>
+
+    </div>
+
+</form>
+</div>
+
+    
+
+
+
 
   </div>
+
+</div>

@@ -1,0 +1,47 @@
+.table {
+    position: absolute;
+    width: 1020px;
+    height: 482px;
+    /* left: 300px; */
+    /* top: 150px; */
+    background: #ffffff;
+    /* Border stroke */
+  
+    border: 1px solid #dadada;
+    box-sizing: border-box;
+    border-radius: 10px;
+    margin-left: 50px;
+    margin-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+    
+  .btn1{
+    /* padding: 20px; */
+    border: none;
+    font-family: karla;
+    /* background-color:linear-gradient(#8F1FC4 1.37%); */
+    background: repeating-linear-gradient( #8F1FC4, #8F1FC4 1.37%, #5F048A, #5F048A 98.48%);
+  
+    font-weight: 700;
+    font-size: 18px;
+    border-radius: 3px;
+    color:white;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+    margin-left: -10px;
+    width: 200px;
+    height: 48px;
+    border-radius: 10px;
+    padding-top: -200px;
+}
+
+/* .btn1{
+    background: repeating-linear-gradient( #8F1FC4, #8F1FC4 1.37%, #5F048A, #5F048A 98.48%);
+     color: white;
+
+} */
+
+.form-control::placeholder{
+font-family: Karla;
+}
