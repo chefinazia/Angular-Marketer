@@ -21,11 +21,11 @@ export class AuthService {
           this.userData = user;
           localStorage.setItem('user', JSON.stringify(this.userData));
           JSON.parse(localStorage.getItem('user'));
-          this.router.navigate(['dashboard']);
+          // this.router.navigate(['dashboard']);
         } else {
           localStorage.setItem('user', null);
           JSON.parse(localStorage.getItem('user'));
-          this.router.navigate(['login']);
+          // this.router.navigate(['login']);
         }
       })
      }
@@ -66,7 +66,7 @@ export class AuthService {
 
   isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user'));
-    if(!user){
+    if(user===null){
       // this.router.navigate(['login']);
       return false
     }else{
