@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./mailer.component.css']
 })
 export class MailerComponent implements OnInit {
-
+title="Mailer"
   constructor() { }
 
   ngOnInit(): void {

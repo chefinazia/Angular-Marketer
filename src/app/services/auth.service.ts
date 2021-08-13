@@ -5,10 +5,12 @@ import { AngularFireAuth } from "@angular/fire/auth";
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Router } from "@angular/router";
 import {User} from '../shared/services/user'
+import { Observable,BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+
   userData: any;
   constructor(
     public afAuth: AngularFireAuth,

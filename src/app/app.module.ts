@@ -18,6 +18,7 @@ import { CreateClientComponent } from './components/create-client/create-client.
 import { MailerComponent } from './components/mailer/mailer.component';
 import { HistoryComponent } from './components/history/history.component';
 import { CampaignComponent } from './components/campaign/campaign.component';
+import {NavbarComponent} from './components/navbar/navbar.component'
 import { CreateCampaignComponent } from './components/create-campaign/create-campaign.component';
 // import { SideRoutingModule } from './components/sidebar/side-routing/side-routing.module';
 @NgModule({
@@ -31,7 +32,8 @@ import { CreateCampaignComponent } from './components/create-campaign/create-cam
     MailerComponent,
     HistoryComponent,
     CampaignComponent,
-    CreateCampaignComponent
+    CreateCampaignComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
