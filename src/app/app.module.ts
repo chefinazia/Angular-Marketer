@@ -21,6 +21,8 @@ import { CampaignComponent } from './components/campaign/campaign.component';
 import {NavbarComponent} from './components/navbar/navbar.component'
 import { CreateCampaignComponent } from './components/create-campaign/create-campaign.component';
 // import { SideRoutingModule } from './components/sidebar/side-routing/side-routing.module';
+import { StoreModule } from '@ngrx/store';
+import {profileReducer} from './store/reducers/profile.reducer'
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,6 +44,9 @@ import { CreateCampaignComponent } from './components/create-campaign/create-cam
     AngularFireAnalyticsModule,
     AngularFirestoreModule,
     AngularFireAuthModule,
+    StoreModule.forRoot({
+      profile: profileReducer,
+    }),
     // SideRoutingModule
   ],
   providers: [],
