@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
-
+import { FormsModule } from '@angular/forms';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
@@ -23,6 +23,12 @@ import { CreateCampaignComponent } from './components/create-campaign/create-cam
 // import { SideRoutingModule } from './components/sidebar/side-routing/side-routing.module';
 import { StoreModule } from '@ngrx/store';
 import {profileReducer} from './store/reducers/profile.reducer'
+import {AuthService} from './services/auth.service'
+import {
+  AngularFireStorageModule,
+  AngularFireStorageReference,
+  AngularFireUploadTask,
+} from "@angular/fire/storage";
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,12 +50,14 @@ import {profileReducer} from './store/reducers/profile.reducer'
     AngularFireAnalyticsModule,
     AngularFirestoreModule,
     AngularFireAuthModule,
+    AngularFireStorageModule,
     StoreModule.forRoot({
       profile: profileReducer,
     }),
+    FormsModule
     // SideRoutingModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

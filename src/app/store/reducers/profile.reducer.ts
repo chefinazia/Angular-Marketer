@@ -9,11 +9,13 @@ const initialState: Profile ={
 }
 export function profileReducer(
   state: Profile = initialState,
-  action: ProfileAction
+  action
 ) {
   switch (action.type) {
     case AuthActionType.UPDATE_PROFILE:
       return {...state, ...action.payload};
+      case AuthActionType.UPDATE_IMAGE:
+      return {...state,photoURL:action.payload };
     default:
       return state;
   }

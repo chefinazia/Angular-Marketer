@@ -17,6 +17,7 @@ const routes: Routes = [
   {path:"campaign" ,component:CampaignComponent, canActivate:[AuthGuard]},
   {path:"mailer" ,component:MailerComponent, canActivate:[AuthGuard]},
   {path:"history" ,component:HistoryComponent, canActivate:[AuthGuard]},
+  {path:"**" , pathMatch: 'full', redirectTo: '/dashboard'},
 
 ];
 
