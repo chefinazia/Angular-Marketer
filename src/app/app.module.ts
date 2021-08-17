@@ -29,6 +29,15 @@ import {
   AngularFireStorageReference,
   AngularFireUploadTask,
 } from "@angular/fire/storage";
+import { NZ_I18N } from 'ng-zorro-antd/i18n';
+import { en_US } from 'ng-zorro-antd/i18n';
+import { registerLocaleData } from '@angular/common';
+import en from '@angular/common/locales/en';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {DemoNgZorroAntdModule} from './antd.module'
+import {ClientService} from './services/client.service'
+registerLocaleData(en);
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,10 +63,13 @@ import {
     StoreModule.forRoot({
       profile: profileReducer,
     }),
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    DemoNgZorroAntdModule
     // SideRoutingModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, { provide: NZ_I18N, useValue: en_US },ClientService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

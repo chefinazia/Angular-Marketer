@@ -11,6 +11,10 @@
 ul#menu li {
   display:inline;
   margin-left: -3%;
+
+}
+#menu{
+  margin-top: 10px;
 }
 
 .title{

@@ -10,3 +10,11 @@ margin-left: 5px;
 .logout{
  margin-top: 220px;
 }
+
+.font{
+  font-family: Karla;
+font-style: normal;
+font-weight: normal;
+font-size: 16px;
+line-height: 20px;
+}

@@ -1,0 +1,59 @@
+.top{
+  width:100%
+}
+
+ul#menu li {
+  display:inline;
+  margin-left: -3%;
+  font-family: Karla;
+font-style: normal;
+font-weight: normal;
+font-size: 20px;
+line-height: 36px;
+}
+
+.right{
+  margin-left: 50%;
+  left: 1220px;
+  position: absolute;
+}
+
+.table{
+  position: absolute;
+width: 75%;
+height: 350px;
+/* margin-left: -3%; */
+
+
+/* white */
+
+background: #FFFFFF;
+/* Border stroke */
+
+border: 1px solid #DADADA;
+box-sizing: border-box;
+border-radius: 10px;
+}
+
+
+.search-box {
+  padding: 8px;
+}
+
+.search-box input {
+  width: 188px;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.search-box button {
+  width: 90px;
+}
+
+.search-button {
+  margin-right: 8px;
+}
+
+.save {
+  margin-right: 8px;
+}
