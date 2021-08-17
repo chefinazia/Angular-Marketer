@@ -1,12 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ClientService} from '../../services/client.service'
 import {Client} from '../../store/models/client.model'
-interface ItemData {
-  id: number;
-  name: string;
-  age: number;
-  address: string;
-}
+
 @Component({
   selector: 'app-client',
   templateUrl: './client.component.html',
