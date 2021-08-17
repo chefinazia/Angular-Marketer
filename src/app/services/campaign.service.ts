@@ -11,23 +11,20 @@ import {Client} from '../store/models/client.model'
 @Injectable({
   providedIn: 'root'
 })
-export class ClientService {
+export class CampaignService {
 
-  constructor(
-    public afs: AngularFirestore,
-    private store: Store<State>
-    ) {
+  constructor( public afs: AngularFirestore,
+    private store: Store<State>) { }
 
+
+    getCampaign(){
+      return this.afs.collection('Campaigns').snapshotChanges();
     }
 
-    getClient(){
-      return this.afs.collection('Clients').snapshotChanges();
-    }
-
-    updateClient(id:string,client: Client){
-      this.afs.doc('Clients/' + id).update(client);
+    updateCampaign(id:string,client: Client){
+      this.afs.doc('Campaigns/' + id).update(client);
   }
-  deleteClient(id: string){
-    this.afs.doc('Clients/' + id).delete();
+  deleteCampaign(id: string){
+    this.afs.doc('Campaigns/' + id).delete();
   }
 }

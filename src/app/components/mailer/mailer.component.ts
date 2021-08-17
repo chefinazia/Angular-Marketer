@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {ClientService} from '../../services/client.service'
+import {CampaignService} from '../../services/campaign.service'
 import {Client} from '../../store/models/client.model'
+import {Campaign} from '../../store/models/campaign.model'
 @Component({
   selector: 'app-mailer',
   templateUrl: './mailer.component.html',
@@ -17,7 +19,8 @@ listOfCurrentPageData: readonly Client[] = [];
 listOfData: readonly Client[] = [];
 setOfCheckedId = new Set<any>();
 editCache: { [key: string]: { edit: boolean; data: Client } } = {};
-  constructor(private clientService:ClientService) { }
+campaignList: Campaign[] = []
+  constructor(private clientService:ClientService,private campaignService:CampaignService) { }
 
   ngOnInit(): void {
     this.clientService.getClient().subscribe(data =>{
@@ -29,6 +32,11 @@ editCache: { [key: string]: { edit: boolean; data: Client } } = {};
         return Object.assign({id: e.payload.doc.id },e.payload.doc.data())
       })
       this.updateEditCache();
+    })
+    this.campaignService.getCampaign().subscribe(data =>{
+   this.campaignList = data.map(e =>{
+    return Object.assign({id: e.payload.doc.id },e.payload.doc.data())
+   })
     })
   }
 
@@ -101,5 +109,6 @@ editCache: { [key: string]: { edit: boolean; data: Client } } = {};
   onDelete(id:string){
     this.clientService.deleteClient(id)
   }
+
 
 }

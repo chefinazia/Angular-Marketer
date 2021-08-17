@@ -10,11 +10,12 @@
   <div class="w3-container">
     <ul id="menu">
       <li class="left">All Client</li>
-      <li class="right">
-        <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select a person" [(ngModel)]="selectedValue">
-          <nz-option nzLabel="Jack" nzValue="jack"></nz-option>
-          <nz-option nzLabel="Lucy" nzValue="lucy"></nz-option>
-          <nz-option nzLabel="Tom" nzValue="tom"></nz-option>
+      <li class="right">&nbsp;&nbsp;&nbsp;&nbsp; Select a Campaign &nbsp;&nbsp;&nbsp;&nbsp;
+        <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select a Campaigns" [(ngModel)]="selectedValue">
+          <div *ngFor="let data of campaignList">
+            <nz-option [nzLabel]="data.name" [nzValue]="data.id"></nz-option>
+          </div>
+
         </nz-select>
       </li>
     </ul>
@@ -23,7 +24,7 @@
       [nzData]="listOfData"
       [nzShowPagination]="false"
       (nzCurrentPageDataChange)="onCurrentPageDataChange($event)"
-      [nzScroll]="{y: '350px'}"
+      [nzScroll]="{y: '400px'}"
     >
       <thead>
         <tr>
@@ -79,6 +80,8 @@
       </div>
     </nz-dropdown-menu>
     </div>
+
+    <button class="submit">Submit</button>
 
   </div>
 
