@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {ClientService} from '../../services/client.service'
 import {Client} from '../../store/models/client.model'
-
+import { NzMessageService } from 'ng-zorro-antd/message';
+import * as XLSX from "xlsx"
+import * as _ from 'lodash';
 @Component({
   selector: 'app-client',
   templateUrl: './client.component.html',
@@ -10,14 +12,12 @@ import {Client} from '../../store/models/client.model'
 export class ClientComponent implements OnInit {
   client: Client[];
  title="Client"
-  constructor(private clientService:ClientService) {  }
+ selectedFiles: FileList;
+  constructor(private clientService:ClientService,private message: NzMessageService) {  }
 
   ngOnInit(): void {
     this.clientService.getClient().subscribe(data =>{
       this.listOfData = data.map(e=>{
-        console.log(
-          e.payload.doc.id
-        );
 
         return Object.assign({id: e.payload.doc.id },e.payload.doc.data())
       })
@@ -95,7 +95,6 @@ export class ClientComponent implements OnInit {
         edit: false,
         data: { ...item }
       };
-      console.log(item);
 
     //   this.editCache.set(item.id,{edit: false,
     //     data: { ...item }})
@@ -103,5 +102,70 @@ export class ClientComponent implements OnInit {
   }
   onDelete(id:string){
     this.clientService.deleteClient(id)
+  }
+  isVisible = false;
+  isOkLoading = false;
+
+  showModal(): void {
+    this.isVisible = true;
+  }
+
+  handleOk(): void {
+    this.isOkLoading = true;
+    setTimeout(() => {
+      this.isVisible = false;
+      this.isOkLoading = false;
+    }, 3000);
+  }
+
+  handleCancel(): void {
+    this.isVisible = false;
+  }
+  uploadClient(event) :void{
+    console.log(event.target.files[0].name.substring(event.target.files[0].name.lastIndexOf('.')+1));
+
+     if(event.target.files[0].name.substring(event.target.files[0].name.lastIndexOf('.')+1).toLowerCase() =="xlsx" ){
+       this.selectedFiles = event.target.files;
+     }else{
+      this.message.create("error", `file must be in XLXS format`);
+     }
+  }
+  toggle(){
+
+    if(this.selectedFiles){
+
+      return true
+    }
+    else{
+      return false
+    }
+
+
+  }
+  back(){
+    this.selectedFiles = null
+  }
+
+  upload(){
+    const fileReader = new FileReader()
+    fileReader.readAsBinaryString(this.selectedFiles[0])
+    fileReader.onload = (event) =>{
+      console.log(event);
+      let binaryData= event.target.result
+      let workbook = XLSX.read(binaryData,{type:"binary"})
+      // console.log(workbook);
+      workbook.SheetNames.forEach(sheet =>{
+        const data = XLSX.utils.sheet_to_json(workbook.Sheets[sheet]) as Client[]
+         let unique =  data.filter(o1 => !this.listOfData.some(o2 => o1.email === o2.email));
+         console.log(unique);
+
+        unique&& unique.map(e =>{
+          this.clientService.createClient(e)
+        })
+        this.isVisible = false;
+        this.selectedFiles = null
+      } )
+
+    }
   }
 }

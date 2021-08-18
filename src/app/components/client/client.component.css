@@ -57,3 +57,81 @@ border-radius: 10px;
 .save {
   margin-right: 8px;
 }
+
+.upload{
+
+position: absolute;
+width: 200px;
+height: 48px;
+font-family: Karla;
+font-style: normal;
+font-weight: bold;
+font-size: 18px;
+line-height: 20px;
+/* identical to box height, or 111% */
+
+letter-spacing: 0.1em;
+text-transform: uppercase;
+color: floralwhite;
+/* Linear 2 */
+margin-left: 29%;
+background: linear-gradient(269.51deg, #8F1FC4 1.37%, #5F048A 98.48%);
+/* background: linear-gradient(269.51deg, #8F1FC4 1.37%, #5F048A 98.48%); */
+border-radius: 10px;
+}
+
+.cloud{
+  margin-left: 20%;
+}
+.text1{
+  margin-left: 32%;
+  font-family: Karla;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 16px;
+margin-top: 5px;
+}
+
+.text2{
+  margin-left: 20%;
+  margin-top: 5px;
+}
+
+.text3{
+  margin-left: 20%;
+}
+.file{
+  margin-left: 45%;
+}
+.filename{
+  margin-top: 12px;
+  margin-left: 28%;
+  font-family: Karla;
+font-style: normal;
+font-weight: normal;
+font-size: 16px;
+line-height: 19px;
+display: flex;
+align-items: center;
+
+/* Primary Text Color */
+
+color: #0E0514;
+}
+.back{
+  margin-top: 12px;
+
+  margin-left: 45%;
+  font-family: Karla;
+font-style: normal;
+font-weight: bold;
+font-size: 14px;
+line-height: 16px;
+display: flex;
+align-items: center;
+
+/* Primary Text */
+
+color: #333333;
+}
