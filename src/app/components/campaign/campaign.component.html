@@ -3,12 +3,73 @@
 
 <div style="margin-left:20%">
 
-  <div class="w3-container w3-teal">
-    <h1>NavBar</h1>
+  <div class="w3-container">
+    <app-navbar [title]="title" ></app-navbar>
   </div>
 
   <div class="w3-container">
+    <ul id="menu">
+      <li class="left">All Campaigns</li>
+      <li class="right">Create</li>
+    </ul>
+    <div class="table">
+      <nz-table
+      [nzData]="listOfData"
+      [nzShowPagination]="false"
+      (nzCurrentPageDataChange)="onCurrentPageDataChange($event)"
+      [nzScroll]="{y: '400px'}"
+    >
+      <thead>
+        <tr>
+          <th
 
+            [(nzChecked)]="checked"
+            [nzIndeterminate]="indeterminate"
+            (nzCheckedChange)="onAllChecked($event)"
+          ></th>
+          <th>Name
+            <nz-filter-trigger [(nzVisible)]="visible" [nzActive]="searchValue.length > 0" [nzDropdownMenu]="menu">
+              <i nz-icon nzType="search"></i>
+            </nz-filter-trigger>
+          </th>
+          <th>Subject</th>
+          <th>Content</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of listOfCurrentPageData">
+          <ng-container *ngIf="!editCache[data.id].edit; else editTemplate">
+
+          <td [nzChecked]="setOfCheckedId.has(data.id)" (nzCheckedChange)="onItemChecked(data.id, $event)"></td>
+          <td>{{ data.name }}</td>
+          <td>{{ data.subject }}</td>
+          <td>{{ data.content }}</td>
+          <td><a (click)="startEdit(data.id)"><i nz-icon nzType="edit" nzTheme="outline"></i></a> &nbsp; &nbsp; <a nz-popconfirm nzPopconfirmTitle="Sure to delete?" (nzOnConfirm)="onDelete(data.id)"><i nz-icon nzType="delete" nzTheme="outline"></i></a></td>
+          </ng-container>
+          <ng-template #editTemplate>
+            <td [nzChecked]="setOfCheckedId.has(data.id)" (nzCheckedChange)="onItemChecked(data.id, $event)"></td>
+            <td><input type="text" nz-input [(ngModel)]="editCache[data.id].data.name" /></td>
+            <td><input type="text" nz-input [(ngModel)]="editCache[data.id].data.subject" /></td>
+            <td><input type="text" nz-input [(ngModel)]="editCache[data.id].data.content" /></td>
+            <td>
+              <a (click)="saveEdit(data.id)" class="save"><i nz-icon nzType="check" nzTheme="outline"></i></a> &nbsp;&nbsp;
+              <a nz-popconfirm nzPopconfirmTitle="Sure to cancel?" (nzOnConfirm)="cancelEdit(data.id)"><i nz-icon nzType="close" nzTheme="outline"></i></a>
+            </td>
+          </ng-template>
+        </tr>
+      </tbody>
+    </nz-table>
+    <nz-dropdown-menu #menu="nzDropdownMenu">
+      <div class="ant-table-filter-dropdown">
+        <div class="search-box">
+          <input type="text" nz-input placeholder="Search name" [(ngModel)]="searchValue" />
+          <button nz-button nzSize="small" nzType="primary" (click)="search()" class="search-button">Search</button>
+          <button nz-button nzSize="small" (click)="reset()">Reset</button>
+        </div>
+      </div>
+    </nz-dropdown-menu>
+    </div>
   </div>
 
   </div>

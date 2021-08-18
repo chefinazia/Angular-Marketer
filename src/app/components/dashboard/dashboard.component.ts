@@ -7,7 +7,7 @@ import {AuthService} from '../../services/auth.service'
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-
+  title = "Dashboard"
   constructor(public auth:AuthService) { }
 
   ngOnInit(): void {

@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
-
+import { FormsModule } from '@angular/forms';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
@@ -18,8 +18,27 @@ import { CreateClientComponent } from './components/create-client/create-client.
 import { MailerComponent } from './components/mailer/mailer.component';
 import { HistoryComponent } from './components/history/history.component';
 import { CampaignComponent } from './components/campaign/campaign.component';
+import {NavbarComponent} from './components/navbar/navbar.component'
 import { CreateCampaignComponent } from './components/create-campaign/create-campaign.component';
 // import { SideRoutingModule } from './components/sidebar/side-routing/side-routing.module';
+import { StoreModule } from '@ngrx/store';
+import {profileReducer} from './store/reducers/profile.reducer'
+import {AuthService} from './services/auth.service'
+import {
+  AngularFireStorageModule,
+  AngularFireStorageReference,
+  AngularFireUploadTask,
+} from "@angular/fire/storage";
+import { NZ_I18N } from 'ng-zorro-antd/i18n';
+import { en_US } from 'ng-zorro-antd/i18n';
+import { registerLocaleData } from '@angular/common';
+import en from '@angular/common/locales/en';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {DemoNgZorroAntdModule} from './antd.module'
+import {ClientService} from './services/client.service'
+import {CampaignService} from './services/campaign.service'
+registerLocaleData(en);
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +50,8 @@ import { CreateCampaignComponent } from './components/create-campaign/create-cam
     MailerComponent,
     HistoryComponent,
     CampaignComponent,
-    CreateCampaignComponent
+    CreateCampaignComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -40,9 +60,17 @@ import { CreateCampaignComponent } from './components/create-campaign/create-cam
     AngularFireAnalyticsModule,
     AngularFirestoreModule,
     AngularFireAuthModule,
+    AngularFireStorageModule,
+    StoreModule.forRoot({
+      profile: profileReducer,
+    }),
+    FormsModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    DemoNgZorroAntdModule
     // SideRoutingModule
   ],
-  providers: [],
+  providers: [AuthService, { provide: NZ_I18N, useValue: en_US },ClientService,CampaignService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

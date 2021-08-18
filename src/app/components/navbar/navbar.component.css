@@ -1,0 +1,159 @@
+.name{
+  position: absolute;
+  /* margin-left: 30%; */
+  font-size: 16px;
+  font-family: Karla;
+  font-style: normal;
+  font-weight: normal;
+  left: 1220px;
+}
+
+ul#menu li {
+  display:inline;
+  margin-left: -3%;
+
+}
+#menu{
+  margin-top: 10px;
+}
+
+.title{
+  font-size: 25px;
+  font-family: Karla;
+  font-style: normal;
+  font-weight: normal;
+}
+ .avtar{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    vertical-align: middle;
+
+ }
+
+ .avatar {
+  vertical-align: middle;
+  width: 85px;
+  height: 85px;
+  border-radius: 50%;
+  /* width: 100%; */
+  margin-left: 48%;
+}
+
+.avtarrow{
+  margin-top: 5px;
+  margin-left: 40%;
+
+}
+
+.submit {
+  background-color: #05219c;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+ /* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #f2f2f2ab;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  background-color: #34a534;
+  color: white;
+}
+
+.modal-body {padding: 2px 16px;background-color: #8e928e; }
+
+.modal-footer {
+  padding: 2px 16px;
+  background-color: #818381;
+  color: white;
+}
+
+/* .container {
+  border-radius: 5px;
+  background-color: #8c968c;
+  padding: 20px;
+  width: 100%;
+} */
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* input[type=text] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+} */
+
+/* label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+
+} */

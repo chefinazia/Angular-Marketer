@@ -1,0 +1,32 @@
+ul#menu li {
+  display:inline;
+  margin-left: -3%;
+  font-family: Karla;
+font-style: normal;
+font-weight: normal;
+font-size: 20px;
+line-height: 36px;
+}
+
+.right{
+  margin-left: 50%;
+  left: 1220px;
+  position: absolute;
+}
+
+.table{
+  position: absolute;
+width: 75%;
+height: 400px;
+/* margin-left: -3%; */
+
+
+/* white */
+
+background: #FFFFFF;
+/* Border stroke */
+
+border: 1px solid #DADADA;
+box-sizing: border-box;
+border-radius: 10px;
+}

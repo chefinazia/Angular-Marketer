@@ -7,20 +7,23 @@ import {MailerComponent} from './components/mailer/mailer.component'
 import {ClientComponent} from './components/client/client.component'
 import {CampaignComponent} from './components/campaign/campaign.component'
 import {HistoryComponent} from './components/history/history.component'
+import {AuthGuard} from './guard/auth.guard'
+import {PublicGuard} from './guard/public.guard'
 const routes: Routes = [
-  {path:'', pathMatch: 'full', redirectTo: '/login' },
-  {path:"login",component:LoginComponent},
-  {path:"dashboard" ,component:DashboardComponent},
-  {path:"client" ,component:ClientComponent},
-  {path:"campaign" ,component:CampaignComponent},
-  {path:"mailer" ,component:MailerComponent},
-  {path:"history" ,component:HistoryComponent},
-  {path: '**', redirectTo: '/'} //always keep this route at the end
+  {path:'', pathMatch: 'full', redirectTo: '/dashboard' },
+  {path:"login",component:LoginComponent , canActivate:[PublicGuard]},
+  {path:"dashboard" ,component:DashboardComponent, canActivate:[AuthGuard]},
+  {path:"client" ,component:ClientComponent, canActivate:[AuthGuard]},
+  {path:"campaign" ,component:CampaignComponent, canActivate:[AuthGuard]},
+  {path:"mailer" ,component:MailerComponent, canActivate:[AuthGuard]},
+  {path:"history" ,component:HistoryComponent, canActivate:[AuthGuard]},
+  {path:"**" , pathMatch: 'full', redirectTo: '/dashboard'},
 
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers:[AuthGuard,PublicGuard]
 })
 export class AppRoutingModule { }

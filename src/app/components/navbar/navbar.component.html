@@ -1,0 +1,57 @@
+<div>
+  <ul id="menu">
+    <li class="title">{{title}}</li>
+    <li class="name" id="openProfile" (click)="openModal()"> <img [src]="profile.photoURL" class="avtar"/> {{profile.displayName}}</li>
+  </ul>
+  </div>
+
+  <div id="myModal" #myModal class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close" (click)="closeModal()">&times;</span>
+        <h2>Profile Update</h2>
+      </div>
+      <div class="modal-body">
+
+          <div class="">
+            <img [src]="profile.photoURL" alt="Avatar" class="avatar">
+            <br/>
+            <input class="avtarrow"  (change)="selectFile($event)" type="file">
+             <div class="row">
+            <div class="col-25">
+              <label for="displayName">Name</label>
+            </div>
+            <div class="col-75">
+              <input type="text" [value]="profile.displayName" [(ngModel)]="formData.displayName" name="displayName" >
+            </div>
+          </div>
+          <div class="">
+            <div class="col-25">
+              <label >Email</label>
+            </div>
+            <div class="col-75">
+              <input type="text" [value]="profile.email" disabled="true"  >
+            </div>
+          </div>
+          <div class="">
+            <div class="col-25">
+              <label for="mobile">Mobile Number</label>
+            </div>
+            <div class="col-75">
+              <input type="number" [value]="profile.mobile" [(ngModel)]="formData.mobile"  name="mobile" >
+            </div>
+          </div>
+
+
+          </div>
+
+
+      </div>
+      <div class="modal-footer">
+        <button class="submit" (click)="updateProfile()"> Submit</button>
+      </div>
+    </div>
+
+  </div>
