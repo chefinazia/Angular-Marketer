@@ -1,0 +1,66 @@
+ul#menu li {
+  display:inline;
+margin-top: 10px;
+  font-family: Karla;
+font-style: normal;
+font-weight: normal;
+font-size: 20px;
+line-height: 36px;
+}
+
+.ant-breadcrumb {
+   margin-left: -3%;
+   font-family: Karla;
+   font-style: normal;
+   font-weight: normal;
+   font-size: 20px;
+   line-height: 36px;
+}
+
+.form{
+  position: absolute;
+width: 1025px;
+height: 430px;
+margin-left: -3%;
+margin-top: 10px;
+
+background: #FFFFFF;
+border: 1px solid #DADADA;
+box-sizing: border-box;
+border-radius: 10px;
+}
+
+.submit{
+  position: absolute;
+  width: 200px;
+  height: 48px;
+
+  /* Linear 2 */
+
+  background: linear-gradient(269.51deg, #8F1FC4 1.37%, #5F048A 98.48%);
+  border-radius: 10px;
+
+  font-family: Karla;
+font-style: normal;
+font-weight: bold;
+font-size: 18px;
+line-height: 20px;
+/* identical to box height, or 111% */
+
+letter-spacing: 0.1em;
+text-transform: uppercase;
+
+color: #FFFFFF;
+}
+.text1{
+  font-family: Karla;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 16px;
+margin-left: 3%;
+margin-top: 10px !important;
+/* Primary Text */
+
+color: #333333;
+}
