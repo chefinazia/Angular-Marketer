@@ -8,6 +8,7 @@ import {
 import { Store } from '@ngrx/store';
 import { State } from '../store/models/state.model';
 import {Client} from '../store/models/client.model'
+import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -17,7 +18,7 @@ export class CampaignService {
     private store: Store<State>) { }
 
 
-    getCampaign(){
+    getCampaign():Observable<any>{
       return this.afs.collection('Campaigns').snapshotChanges();
     }
 

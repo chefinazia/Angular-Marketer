@@ -1,15 +1,57 @@
-
 <!-- <app-sidebar></app-sidebar> -->
 
 
 <div style="margin-left:20%">
 
   <div class="w3-container  nav">
-    <app-navbar [title]="title" ></app-navbar>
+    <app-navbar [title]="title"></app-navbar>
   </div>
 
   <div class="w3-container">
 
-  </div>
+
+    <mat-grid-list cols="3" rowHeight="4:2" >
+      <mat-grid-tile> 
+        <mat-card style="width : 300px ; ">
+          <img mat-card-avatar src="assets/img/Group.png" alt="">
+          <span class=" total">
+            Total Clients
+          </span>
+          <h3 class="heading" *ngIf="listOfData"> {{listOfData.length || '0'}} </h3>
+        </mat-card>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-card style="width : 300px">
+          <img mat-card-avatar src="assets/img/Group.png" alt="">
+          <span class=" total">
+            Total Mail Sent
+          </span>
+          <h3 class="heading"> 2 </h3>
+        </mat-card>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-card style="width : 300px">
+          <img mat-card-avatar src="assets/img/Rectangle.png" alt="">
+          <span class=" total">
+            Total Campaign
+          </span>
+          <h3 class="heading" *ngIf="listOfDataClient"> {{listOfDataClient.length || '0'}} </h3>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
 
   </div>
+  <div style="display: flex;">
+    <app-line-chart></app-line-chart>
+    <app-bar-chart></app-bar-chart>
+  </div>
+
+</div>
+
+<div style="display: block;">
+  <canvas baseChart width="400" height="400">
+  </canvas>
+</div>
+

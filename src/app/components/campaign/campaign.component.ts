@@ -72,6 +72,7 @@ title="Campaign"
   startEdit(id: string): void {
     this.editCache[id].edit = true;
   }
+
   cancelEdit(id: string): void {
     const index = this.listOfData.findIndex(item => item.id === id);
     this.editCache[id] = {
@@ -79,6 +80,7 @@ title="Campaign"
       edit: false
     };
   }
+  
   saveEdit(id: string): void {
     // const index = this.listOfData.findIndex(item => item.id === id);
     // Object.assign(this.listOfData[index], this.editCache[id].data);

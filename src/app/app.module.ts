@@ -18,6 +18,8 @@ import { CreateClientComponent } from './components/create-client/create-client.
 import { MailerComponent } from './components/mailer/mailer.component';
 import { HistoryComponent } from './components/history/history.component';
 import { CampaignComponent } from './components/campaign/campaign.component';
+import { BarChartComponent } from './components/bar-chart/bar-chart.component';
+import { LineChartComponent } from './components/line-chart/line-chart.component';
 import {NavbarComponent} from './components/navbar/navbar.component'
 import { CreateCampaignComponent } from './components/create-campaign/create-campaign.component';
 // import { SideRoutingModule } from './components/sidebar/side-routing/side-routing.module';
@@ -37,7 +39,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {DemoNgZorroAntdModule} from './antd.module'
 import {ClientService} from './services/client.service'
-import {CampaignService} from './services/campaign.service'
+import {CampaignService} from './services/campaign.service';
+import { ZingchartAngularModule } from 'zingchart-angular'
+
 registerLocaleData(en);
 @NgModule({
   declarations: [
@@ -51,10 +55,13 @@ registerLocaleData(en);
     HistoryComponent,
     CampaignComponent,
     CreateCampaignComponent,
-    NavbarComponent
+    NavbarComponent,
+    BarChartComponent,
+    LineChartComponent
   ],
   imports: [
     BrowserModule,
+    ZingchartAngularModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAnalyticsModule,

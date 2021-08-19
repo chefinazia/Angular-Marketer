@@ -69,6 +69,9 @@ import { NzTypographyModule } from 'ng-zorro-antd/typography';
 import { NzUploadModule } from 'ng-zorro-antd/upload';
 import { NzResizableModule } from 'ng-zorro-antd/resizable';
 import { NzPipesModule } from 'ng-zorro-antd/pipes';
+import {MatButtonModule} from "@angular/material/button";
+import {MatCardModule} from "@angular/material/Card";
+import {MatGridListModule} from "@angular/material/grid-list";
 
 @NgModule({
   exports: [
@@ -140,6 +143,9 @@ import { NzPipesModule } from 'ng-zorro-antd/pipes';
     NzWaveModule,
     NzResizableModule,
     NzPipesModule,
+    MatButtonModule,
+    MatCardModule,
+    MatGridListModule
   ]
 })
 export class DemoNgZorroAntdModule {
