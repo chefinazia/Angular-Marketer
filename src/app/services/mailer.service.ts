@@ -9,6 +9,9 @@ import {
 } from '@angular/fire/firestore';
 import { BehaviorSubject } from 'rxjs';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { State } from '../store/models/state.model';
+import {historyAction,historyClearAction} from '../store/actions/history.action'
 @Injectable({
   providedIn: 'root',
 })
@@ -17,7 +20,7 @@ export class MailerService {
   public array =[]
   clientData: BehaviorSubject<any> = new BehaviorSubject(this.array);
   result$ = this.clientData.asObservable()
-  constructor(public afs: AngularFirestore,private message: NzMessageService,public router:Router) {}
+  constructor(public afs: AngularFirestore,private message: NzMessageService,public router:Router, private store: Store<State>) {}
 
 async sendMail(window,clientData,campaignData){
   clientData.map(async e =>{
@@ -55,7 +58,26 @@ async sendMail(window,clientData,campaignData){
 }
  }
 
+ getHistory(date){
+  this.store.dispatch(new historyClearAction())
+   if(date!==null){
+    this.store.dispatch(new historyClearAction())
+   this.afs.collection('history',ref => ref.where("createdAt", ">",date[0]).where("createdAt", "<",date[1])).snapshotChanges().subscribe(data =>{
+     data.map(e =>{
+       this.store.dispatch(new historyAction(Object.assign({id: e.payload.doc.id },e.payload.doc.data())))
 
+     })
+   })
+  }else{
+    this.store.dispatch(new historyClearAction())
+    this.afs.collection('history').snapshotChanges().subscribe(data =>{
+      data.map(e =>{
+        this.store.dispatch(new historyAction(Object.assign({id: e.payload.doc.id },e.payload.doc.data())))
+
+      })
+    })
+  }
+}
 
 
 

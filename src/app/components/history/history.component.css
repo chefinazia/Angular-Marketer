@@ -1,0 +1,16 @@
+ul#menu li {
+  display:inline;
+  margin-left: -3%;
+  font-family: Karla;
+font-style: normal;
+font-weight: normal;
+font-size: 20px;
+line-height: 36px;
+}
+
+.right{
+  font-size: 16px !important;
+  margin-left: 50%;
+  left: 1000px;
+  position: absolute;
+}

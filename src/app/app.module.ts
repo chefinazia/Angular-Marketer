@@ -39,6 +39,7 @@ import {DemoNgZorroAntdModule} from './antd.module'
 import {ClientService} from './services/client.service'
 import {CampaignService} from './services/campaign.service'
 import {MailerService} from './services/mailer.service'
+import {historyReducer} from './store/reducers/history.reducer'
 registerLocaleData(en);
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ registerLocaleData(en);
     AngularFireStorageModule,
     StoreModule.forRoot({
       profile: profileReducer,
+      history:historyReducer
     }),
     FormsModule,
     HttpClientModule,
