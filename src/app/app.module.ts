@@ -38,6 +38,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {DemoNgZorroAntdModule} from './antd.module'
 import {ClientService} from './services/client.service'
 import {CampaignService} from './services/campaign.service'
+import {MailerService} from './services/mailer.service'
 registerLocaleData(en);
 @NgModule({
   declarations: [
@@ -70,7 +71,7 @@ registerLocaleData(en);
     DemoNgZorroAntdModule
     // SideRoutingModule
   ],
-  providers: [AuthService, { provide: NZ_I18N, useValue: en_US },ClientService,CampaignService],
+  providers: [{ provide: Window, useValue: window },AuthService, { provide: NZ_I18N, useValue: en_US },ClientService,CampaignService,MailerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
