@@ -80,8 +80,8 @@
       </div>
     </nz-dropdown-menu>
     </div>
-
-    <button class="submit">Submit</button>
+   <ng-container *ngIf="mailerServices.toggle;else elseSubmit"> <button class="submit" (click)="onSubmit()" >Submit</button></ng-container>
+   <ng-template #elseSubmit><button class="submit"  ><nz-spin nzSimple [nzSize]="'small'"></nz-spin>Sending</button></ng-template>
 
   </div>
 

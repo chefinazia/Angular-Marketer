@@ -8,7 +8,12 @@
   </div>
 
   <div class="w3-container">
-
+    <ul id="menu">
+      <li class="left">All History</li>
+      <li class="right">
+        <nz-range-picker [(ngModel)]="date" (ngModelChange)="onChange($event)"></nz-range-picker>
+      </li>
+    </ul>
   </div>
 
   </div>

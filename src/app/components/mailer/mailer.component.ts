@@ -3,6 +3,7 @@ import {ClientService} from '../../services/client.service'
 import {CampaignService} from '../../services/campaign.service'
 import {Client} from '../../store/models/client.model'
 import {Campaign} from '../../store/models/campaign.model'
+import {MailerService} from '../../services/mailer.service'
 @Component({
   selector: 'app-mailer',
   templateUrl: './mailer.component.html',
@@ -20,7 +21,9 @@ listOfData: readonly Client[] = [];
 setOfCheckedId = new Set<any>();
 editCache: { [key: string]: { edit: boolean; data: Client } } = {};
 campaignList: Campaign[] = []
-  constructor(private clientService:ClientService,private campaignService:CampaignService) { }
+  constructor(private clientService:ClientService,private campaignService:CampaignService,private window: Window,public mailerServices:MailerService) {
+    console.log(window);
+   }
 
   ngOnInit(): void {
     this.clientService.getClient().subscribe(data =>{
@@ -109,6 +112,18 @@ campaignList: Campaign[] = []
   onDelete(id:string){
     this.clientService.deleteClient(id)
   }
+ async onSubmit(){
+    // console.log(this.setOfCheckedId,this.selectedValue);
+    this.mailerServices.toggle=false
+    let clientIds = [...this.setOfCheckedId]
+    let clientData=[]
+    clientData = clientIds.map(e=> this.listOfData.find(f =>{ if(f.id==e) return f  }))
+    let campaignData = this.campaignList.find(e => e.id ==this.selectedValue)
 
+     console.log(clientData,campaignData);
+     this.mailerServices.sendMail(this.window,clientData,campaignData)
+     this.setOfCheckedId.clear()
+     this.selectedValue=null
+  }
 
 }

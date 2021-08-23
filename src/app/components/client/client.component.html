@@ -11,7 +11,52 @@
 
      <ul id="menu">
        <li class="left">All Clients</li>
-       <li class="right">Create</li>
+       <li class="right"><button nz-button nzType="primary" (click)="showModal()">
+        <span>Create client</span>
+      </button>
+      <nz-modal
+      [nzStyle]="{ top: '20px' }"
+      [(nzVisible)]="isVisible"
+      [nzTitle]="modalTitle"
+      [nzContent]="modalContent"
+      [nzFooter]="modalFooter"
+      (nzOnCancel)="handleCancel()"
+      [nzWidth]=600
+    >
+      <ng-template #modalTitle>upload Client</ng-template>
+
+      <ng-template #modalContent>
+         <ng-container  *ngIf="!toggle();else screen2">
+        <label for="upload" class="cloud">
+          <img src="assets/img/cloud.svg" alt="cloud" />
+          <input type="file" id="upload" (change)="uploadClient($event)" style="display: none;">
+        </label>
+        <div class="text1">You can only upload <strong>.xlsx</strong>  and <strong>.csv</strong></div>
+        <div class="text2">Note : Excel Upload needs a specific format to upload data. <br/> Please go through the given template before upload</div>
+        <br/>
+        <div class="text3"> <img src="assets/img/file.svg" alt="file"/> &nbsp;&nbsp; Download Template </div>
+        <br/><br/>
+        <button class="upload" [disabled]="!toggle()" >Upload</button>
+        <br/><br/><br/><br/><br/><br/>
+      </ng-container>
+      <ng-template  #screen2 >
+        <img src="assets/img/Group.svg" alt="file" class="file">
+        <br/>
+        <span class="filename">
+          {{selectedFiles[0].name}}
+        </span>
+        <br/>
+        <button class="back" (click)="back()">change</button>
+        <br/><br/><br/>
+        <button class="upload" (click)="upload()" >Upload</button>
+        <br/><br/><br/><br/>
+      </ng-template>
+      </ng-template>
+
+      <ng-template #modalFooter>
+
+      </ng-template>
+    </nz-modal></li>
      </ul>
 
      <div class="table">

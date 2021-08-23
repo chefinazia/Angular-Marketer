@@ -1,14 +1,78 @@
 <!-- <app-sidebar></app-sidebar> -->
 
-
-<div style="margin-left:20%">
-
-  <div class="w3-container w3-teal">
-    <h1>NavBar</h1>
+<div style="margin-left: 20%">
+  <div class="w3-container">
+    <app-navbar [title]="title"></app-navbar>
   </div>
 
   <div class="w3-container">
+    <ul id="menu">
+      <li class="left">
+        <nz-breadcrumb nzSeparator=">">
+          <nz-breadcrumb-item>All Campaigns</nz-breadcrumb-item>
+          <nz-breadcrumb-item>
+            <a>Create Campaigns</a>
+          </nz-breadcrumb-item>
+        </nz-breadcrumb>
+      </li>
+      <form class="form" (ngSubmit)="onSubmit()">
+        <div class="row form-group" style="margin-top: 15px; margin-left: 1%" >
+          <div class="col-md-6">
+            <label class="control-label" for="inputSuccess1"
+              >Campaign Name</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="inputSuccess1"
+              name="name"
+              aria-describedby="helpBlock2"
+              [(ngModel)]="formData.name"
+            />
+          </div>
 
-  </div>
+          <div class="col-md-6" style="margin-left: -2%">
+            <label class="control-label" for="inputSuccess2">Subject</label>
+            <input
+              type="text"
+              class="form-control"
+              id="inputSuccess2"
+              aria-describedby="helpBlock2"
+              [(ngModel)]="formData.subject"
+              name="subject"
+            />
+          </div>
+        </div>
+        <div class="row form-group" style="margin-left: 1%;">
+          <div class="col-md-5" >
+            <label class="control-label" for="inputSuccess3">Image</label>
+          <input
+            type="file"
+            class="form-control"
+            id="inputSuccess3"
+            aria-describedby="helpBlock2"
+            (change)="imageUpload($event)"
+          />
+        </div>
 
+        </div>
+        <div class="row form-group" style="margin-left: 1%;">
+          <div class="col-md-11" >
+            <label class="control-label" for="inputSuccess4">Content</label>
+          <textarea
+            type="file"
+            class="form-control"
+            id="inputSuccess4"
+            aria-describedby="helpBlock2"
+            rows="6"
+            name="content"
+            [(ngModel)]="formData.content"
+          ></textarea>
+        </div>
+        </div>
+        <div class="row" style="margin-left: 1%;"> <button class="submit" type="submit">Submit</button></div>
+
+      </form>
+    </ul>
   </div>
+</div>
