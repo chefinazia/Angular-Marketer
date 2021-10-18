@@ -70,7 +70,7 @@ registerLocaleData(en);
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    DemoNgZorroAntdModule
+    DemoNgZorroAntdModule,
     // SideRoutingModule
   ],
   providers: [{ provide: Window, useValue: window },AuthService, { provide: NZ_I18N, useValue: en_US },ClientService,CampaignService,MailerService],

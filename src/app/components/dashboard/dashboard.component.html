@@ -8,8 +8,45 @@
     <app-navbar [title]="title" ></app-navbar>
   </div>
 
-  <div class="w3-container">
+  <div class="w3-container" style="margin-top:20px">
+    <div nz-row>
+    <nz-card nz-col nzSpan="6" style="width:300px; margin-right: 5px;">
+      <div nz-row>
+        <div nz-col nzSpan="12"> <img src="../../../assets/img/dash.svg" alt="" /></div>
+        <div nz-col nzSpan="12">
+          <span style="font-size:14px; font-weight:bold">Total Campaign</span>
+         <br/>
+          <span>{{campaignCount}}</span>
+        </div>
+      </div>
 
+    </nz-card>
+    <nz-card nz-col nzSpan="6" style="width:300px; margin-right: 5px;">
+      <div nz-row>
+        <div nz-col nzSpan="12"> <img src="../../../assets/img/client.svg" alt="" /></div>
+        <div nz-col nzSpan="12">
+          <span style="font-size:14px; font-weight:bold">Total Client</span>
+         <br/>
+          <span>{{clientCount}}</span>
+        </div>
+      </div>
+
+    </nz-card>
+    <!-- <nz-card nz-col nzSpan="6" style="width:300px;">
+      <div nz-row>
+        <div nz-col nzSpan="12"> <img src="../../../assets/img/dash.svg" alt="" /></div>
+        <div nz-col nzSpan="12">
+          <span style="font-size:14px; font-weight:bold">Total Campaign</span>
+         <br/>
+          <span>12</span>
+        </div>
+      </div>
+
+    </nz-card> -->
+   </div>
+<div>
+
+</div>
   </div>
 
   </div>
